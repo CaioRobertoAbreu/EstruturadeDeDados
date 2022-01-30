@@ -38,6 +38,18 @@ public class Vetor {
         return this.elementos[posicao];
     }
 
+    public Integer busca(String elemento){
+
+        for (int i = 0; i < tamanho; i++){
+
+            if(this.elementos[i].equalsIgnoreCase(elemento)){
+                return i;
+            }
+        }
+
+        return -1;
+    }
+
     @Override
     public String toString() {
 
