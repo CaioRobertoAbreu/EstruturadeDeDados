@@ -13,7 +13,7 @@ public class Vetor {
     }
 
     public boolean adiciona(String elemento){
-
+        aumentaCapacidade();
         if (this.tamanho < elementos.length) {
             this.elementos[this.tamanho] = elemento;
             this.tamanho++;
@@ -24,15 +24,11 @@ public class Vetor {
     }
 
     public boolean adiciona(Integer posicao, String elemento){
-
+        aumentaCapacidade();
         if(!(posicao < tamanho && posicao >= 0)){
 
             throw  new IllegalArgumentException("Posicao Invalida");
 
-        }
-
-        if(tamanho == this.elementos.length){
-            throw new IllegalArgumentException("Vetor já está cheio");
         }
 
         if(this.elementos[posicao] == null){
@@ -97,5 +93,19 @@ public class Vetor {
         s.append("]");
 
         return s.toString();
+    }
+
+    private void aumentaCapacidade(){
+
+        if(tamanho == this.elementos.length){
+            var novoTamanho = this.elementos.length * 2;
+            var novoArray = new String[novoTamanho];
+
+            for(int i = 0; i < tamanho; i++){
+                novoArray[i] = this.elementos[i];
+            }
+
+            this.elementos = novoArray;
+        }
     }
 }
