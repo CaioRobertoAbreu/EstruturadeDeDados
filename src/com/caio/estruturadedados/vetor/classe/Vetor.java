@@ -23,6 +23,34 @@ public class Vetor {
         return false;
     }
 
+    public boolean adiciona(Integer posicao, String elemento){
+
+        if(!(posicao < tamanho && posicao >= 0)){
+
+            throw  new IllegalArgumentException("Posicao Invalida");
+
+        }
+
+        if(tamanho == this.elementos.length){
+            throw new IllegalArgumentException("Vetor já está cheio");
+        }
+
+        if(this.elementos[posicao] == null){
+            this.elementos[posicao] = elemento;
+            tamanho++;
+            return true;
+
+        }else {
+
+            for(int i = tamanho; i > posicao; i--){
+                this.elementos[i] = this.elementos[i-1];
+            }
+            this.elementos[posicao] = elemento;
+            this.tamanho++;
+            return true;
+        }
+    }
+
     public Integer tamanho(){
         return this.tamanho;
     }
