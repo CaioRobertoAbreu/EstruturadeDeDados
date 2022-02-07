@@ -1,16 +1,16 @@
 package com.caio.estruturadedados.vetor.classe;
 
-public class Vetor {
+public class VetorGenerico<T> {
 
-    private String[] elementos;
+    private T[] elementos;
     private Integer tamanho;
 
-    public Vetor(Integer capacidade) {
-        this.elementos = new String[capacidade];
+    public VetorGenerico(Integer capacidade) {
+        this.elementos = (T[]) new Object[capacidade];
         this.tamanho = 0;
     }
 
-    public boolean adiciona(String elemento){
+    public boolean adiciona(T elemento){
         aumentaCapacidade();
         if (this.tamanho < elementos.length) {
             this.elementos[this.tamanho] = elemento;
@@ -21,7 +21,7 @@ public class Vetor {
         return false;
     }
 
-    public boolean adiciona(Integer posicao, String elemento){
+    public boolean adiciona(Integer posicao, T elemento){
         aumentaCapacidade();
         verificaPosicaoInvalida(posicao);
 
@@ -45,18 +45,18 @@ public class Vetor {
         return this.tamanho;
     }
 
-    public String busca(Integer posicao){
+    public T busca(Integer posicao){
 
         verificaPosicaoInvalida(posicao);
 
         return this.elementos[posicao];
     }
 
-    public Integer busca(String elemento){
+    public Integer buscaElemento(T elemento){
 
         for (int i = 0; i < tamanho; i++){
 
-            if(this.elementos[i].equalsIgnoreCase(elemento)){
+            if(this.elementos[i].equals(elemento)){
                 return i;
             }
         }
@@ -105,7 +105,7 @@ public class Vetor {
 
         if(this.tamanho == this.elementos.length){
             var novoTamanho = this.elementos.length * 2;
-            var novoArray = new String[novoTamanho];
+            var novoArray = (T[]) new Object[novoTamanho];
 
             for(int i = 0; i < tamanho; i++){
                 novoArray[i] = this.elementos[i];
