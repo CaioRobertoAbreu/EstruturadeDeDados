@@ -115,6 +115,37 @@ public class VetorGenerico<T> {
         }
     }
 
+    public boolean contem(T elemento){
+
+       return buscaElemento(elemento) > -1;
+    }
+
+    public Integer lastIndexOf(T elemento){
+
+        for (int i = this.tamanho-1; i > -1; i--){
+
+            if(this.elementos[i].equals(elemento)){
+                return  i;
+            }
+        }
+
+        return -1;
+
+    }
+
+    public void remove(T elemento){
+
+        var posicao = buscaElemento(elemento);
+
+        if(posicao > -1){
+            remover(posicao);
+        }
+    }
+
+    public T get(int posicao){
+        return busca(posicao);
+    }
+
     private void verificaPosicaoInvalida(int posicao){
         if(!(posicao < tamanho && posicao >= 0)){
 

@@ -1,4 +1,4 @@
-package com.caio.estruturadedados.vetor.test.classejava;
+package com.caio.estruturadedados.vetor.test;
 
 import java.util.ArrayList;
 

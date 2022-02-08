@@ -1,4 +1,4 @@
-package com.caio.estruturadedados.vetor.test.vetor;
+package com.caio.estruturadedados.vetor.test;
 
 import com.caio.estruturadedados.vetor.classe.Vetor;
 
