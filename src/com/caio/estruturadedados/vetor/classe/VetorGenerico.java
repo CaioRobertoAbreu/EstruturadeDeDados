@@ -142,6 +142,15 @@ public class VetorGenerico<T> {
         }
     }
 
+    public void remove(){
+
+        for(int i = 0; i < this.tamanho; i++){
+            this.elementos[i] = null;
+        }
+
+        this.tamanho = 0;
+    }
+
     public T get(int posicao){
         return busca(posicao);
     }
